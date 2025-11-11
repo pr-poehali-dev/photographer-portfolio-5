@@ -61,6 +61,27 @@ const Index = () => {
     },
   ];
 
+  const testimonials = [
+    {
+      name: 'Анна и Михаил',
+      role: 'Свадебная съемка',
+      text: 'Невероятные эмоции в каждом кадре! Мы пересматриваем фотографии каждый день и снова погружаемся в атмосферу нашего праздника.',
+      rating: 5
+    },
+    {
+      name: 'Елена Соколова',
+      role: 'Портретная съемка',
+      text: 'Профессионал своего дела! Помог расслабиться перед камерой, результат превзошел все ожидания.',
+      rating: 5
+    },
+    {
+      name: 'Дмитрий и Ольга',
+      role: 'Love Story',
+      text: 'Романтичная атмосфера, красивые локации и невероятный результат. Спасибо за память на всю жизнь!',
+      rating: 5
+    },
+  ];
+
   const availableSlots = [
     '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'
   ];
@@ -101,11 +122,20 @@ const Index = () => {
             <button onClick={() => scrollToSection('portfolio')} className="text-sm font-medium hover:text-primary transition-colors">
               Портфолио
             </button>
+            <button onClick={() => scrollToSection('about')} className="text-sm font-medium hover:text-primary transition-colors">
+              Обо мне
+            </button>
             <button onClick={() => scrollToSection('services')} className="text-sm font-medium hover:text-primary transition-colors">
               Услуги
             </button>
+            <button onClick={() => scrollToSection('testimonials')} className="text-sm font-medium hover:text-primary transition-colors">
+              Отзывы
+            </button>
             <button onClick={() => scrollToSection('booking')} className="text-sm font-medium hover:text-primary transition-colors">
               Бронирование
+            </button>
+            <button onClick={() => scrollToSection('contacts')} className="text-sm font-medium hover:text-primary transition-colors">
+              Контакты
             </button>
           </div>
           <Button onClick={() => scrollToSection('booking')} className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
@@ -196,7 +226,53 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-24">
+      <section id="about" className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="relative animate-fade-in">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-3xl blur-2xl" />
+              <img 
+                src="https://cdn.poehali.dev/projects/4dc93e66-bc19-432d-9aee-0db241d536d5/files/dd83adda-1538-4b15-9ca9-0869583ae49e.jpg"
+                alt="Обо мне"
+                className="relative rounded-3xl shadow-2xl hover-scale w-full h-[500px] object-cover"
+              />
+            </div>
+            <div className="space-y-6 animate-slide-up">
+              <Badge className="bg-gradient-to-r from-primary to-accent text-white border-0">
+                Обо мне
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                Привет! Я <span className="gradient-text">Александра</span>
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p className="text-lg">
+                  Профессиональный фотограф с 5-летним опытом. Моя страсть — запечатлевать искренние эмоции и создавать истории, которые хочется пересматривать снова и снова.
+                </p>
+                <p>
+                  Начинала путь с простой камеры и большой мечты. Сегодня за плечами сотни свадеб, портретных и семейных фотосессий. Каждый проект для меня уникален — я изучаю характер клиента, его историю, чтобы создать по-настоящему личные кадры.
+                </p>
+                <p>
+                  Работаю в светлом и воздушном стиле, люблю естественный свет и живые эмоции. Верю, что лучшие фотографии получаются, когда люди чувствуют себя комфортно и могут быть собой.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="p-4 bg-muted rounded-xl">
+                  <Icon name="Award" size={32} className="text-primary mb-2" />
+                  <div className="font-semibold">Награды</div>
+                  <div className="text-sm text-muted-foreground">Победитель конкурсов</div>
+                </div>
+                <div className="p-4 bg-muted rounded-xl">
+                  <Icon name="BookOpen" size={32} className="text-primary mb-2" />
+                  <div className="font-semibold">Обучение</div>
+                  <div className="text-sm text-muted-foreground">Постоянно развиваюсь</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <Badge className="mb-4 bg-gradient-to-r from-primary to-accent text-white border-0">
@@ -227,6 +303,43 @@ const Index = () => {
                           Подробнее
                         </Button>
                       </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <Badge className="mb-4 bg-gradient-to-r from-primary to-accent text-white border-0">
+              Отзывы
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Что говорят клиенты</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Мне важно мнение каждого клиента. Читайте отзывы тех, кто уже доверил мне свои важные моменты.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover-scale border-2 hover:border-primary transition-all">
+                <CardContent className="p-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Icon key={i} name="Star" size={18} className="text-secondary fill-secondary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
+                  <div className="flex items-center gap-3 pt-4 border-t">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="font-semibold">{testimonial.name}</div>
+                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
                     </div>
                   </div>
                 </CardContent>
@@ -359,7 +472,91 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 border-t">
+      <section id="contacts" className="py-24">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16 animate-fade-in">
+            <Badge className="mb-4 bg-gradient-to-r from-primary to-accent text-white border-0">
+              Контакты
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь со мной</h2>
+            <p className="text-lg text-muted-foreground">
+              Готова ответить на все вопросы и обсудить детали вашей фотосессии.
+            </p>
+          </div>
+          <Card className="border-2">
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20">
+                      <Icon name="Phone" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">Телефон</div>
+                      <a href="tel:+79991234567" className="text-muted-foreground hover:text-primary transition-colors">
+                        +7 (999) 123-45-67
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20">
+                      <Icon name="Mail" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">Email</div>
+                      <a href="mailto:photo@example.com" className="text-muted-foreground hover:text-primary transition-colors">
+                        photo@example.com
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20">
+                      <Icon name="Instagram" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">Instagram</div>
+                      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        @photoart_studio
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20">
+                      <Icon name="MapPin" size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">Локация</div>
+                      <div className="text-muted-foreground">Москва и Московская область</div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <form className="space-y-4">
+                    <div>
+                      <Label htmlFor="contact-name">Ваше имя</Label>
+                      <Input id="contact-name" placeholder="Иван Иванов" />
+                    </div>
+                    <div>
+                      <Label htmlFor="contact-email">Email</Label>
+                      <Input id="contact-email" type="email" placeholder="ivan@example.com" />
+                    </div>
+                    <div>
+                      <Label htmlFor="contact-message">Сообщение</Label>
+                      <Textarea id="contact-message" placeholder="Расскажите о своих пожеланиях" rows={4} />
+                    </div>
+                    <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                      <Icon name="Send" size={18} className="mr-2" />
+                      Отправить сообщение
+                    </Button>
+                  </form>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <footer className="py-12 border-t bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
